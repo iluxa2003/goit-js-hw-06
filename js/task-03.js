@@ -12,15 +12,7 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const special = [];
 const gallery = document.querySelector(".gallery");
 gallery.style.display = "flex";
-for (const key in images) {
-  const inter = document.createElement('li');
- 
-  // inter.innerHTML = `<img src="${images[key].url}" alt="${images[key].alt}"/>`
-  inter.insertAdjacentHTML("afterbegin", `<img src="${images[key].url}" alt="${images[key].alt}"/>`);
-  special.push(inter);
-}
-console.log(special)
-gallery.append(...special)
+const special = images.map((image) => `<li><img src="${image.url}" alt="${image.alt}"/><li/>`);
+gallery.insertAdjacentHTML("afterbegin", special);

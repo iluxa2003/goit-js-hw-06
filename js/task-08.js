@@ -6,7 +6,6 @@ const secondInput = document.querySelector('input[type="password"]');
 const persons = [];
 const  check = event => {
     event.preventDefault();
-    
     for(const key in formInputs){
         if(formInputs[key].value == ""){
             return alert("enter something in inputs");
@@ -14,19 +13,21 @@ const  check = event => {
         
     }
     const person = {};
-    person[firstInput.getAttribute("name")] = firstInput.value;
-    person[secondInput.getAttribute("name")] = secondInput.value;
-
+    for(const input of formInputs){
+        person[input.getAttribute("name")] =input.value;
+    }
     persons.push(person); 
+    
     reset();
 };
 function reset() {
-    console.log(persons);
-    firstInput.value = "";
-    secondInput.value = "";
-    // for(const key in formInputs){
-    //     formInputs[key].value = "";
-    // }
+    for(const input of formInputs){
+        input.value = "";
+    }
+    for(const person of persons){
+        console.log(`Login: ${person.email}, Password: ${person.password}`);
+    }
+
 }
 button.addEventListener("click", check);
 // button.addEventListener("submit", reset);

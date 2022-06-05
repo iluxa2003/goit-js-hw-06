@@ -1,14 +1,14 @@
-const Plusbotton = document.querySelector('button[data-action="increment"]');
-const Minusbotton = document.querySelector('button[data-action="decrement"]');
-const DomSpan = document.querySelector('#value');
+const plusButton = document.querySelector('button[data-action="increment"]');
+const minusButton = document.querySelector('button[data-action="decrement"]');
+const domSpan = document.querySelector('#value');
 let counterValue = 0;
 const plus = event => {
     counterValue++;
-    DomSpan.textContent = counterValue;
+    domSpan.textContent = counterValue;
   };
   const minus = event => {
     counterValue--;
-    DomSpan.textContent = counterValue;
+    domSpan.textContent = counterValue;
   };
-  Plusbotton.addEventListener("click", plus);
-  Minusbotton.addEventListener("click",minus)
+  plusButton.addEventListener("click", plus);
+  minusButton.addEventListener("click",minus)

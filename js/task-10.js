@@ -6,22 +6,19 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 let size = 30;
-const trash = [];
-const createBoxes = (amount) => {
-  for(let i = 0; i < input.value; i++){
+const createBoxes = (event, amount) => {
+  amount = input.value
+  for(let i = 0; i < amount; i++){
     const item = document.createElement('div');
     item.style.backgroundColor = getRandomHexColor();
     item.style.height = `${size}px`;
     item.style.width = `${size}px`;
-    trash.push(item)
     container.append(item);
     size += 10;
   }
 }
 const destroyBoxes = () => {
-  for(const item in trash){
-    trash[item].remove()
-  }
+  container.innerHTML = ""
   size = 30;
 }
 create.addEventListener("click", createBoxes)

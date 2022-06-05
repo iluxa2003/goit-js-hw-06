@@ -8,10 +8,10 @@ const ingredients = [
 ];
 const special = [];
 const specialRecepie = document.querySelector("#ingredients");
-for (const key in ingredients) {
+for (const ingridient of ingredients) {
   const inter = document.createElement('li');
   inter.classList.add("item");
-  inter.textContent = ingredients[key];
+  inter.textContent = ingridient;
   special.push(inter);
 }
 specialRecepie.append(...special)
